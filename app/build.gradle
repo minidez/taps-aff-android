@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "uk.co.ianadie.tapsaff"
+        minSdkVersion 15
+        targetSdkVersion 22
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.google.android.gms:play-services:7.0.0'
+    compile files('libs/bugsense-3.6.1.jar')
+    compile files('libs/dashclock-api-r2.0.jar')
+    compile files('libs/json.jar')
+}

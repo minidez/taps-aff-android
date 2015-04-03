@@ -1,0 +1,2 @@
+bugsense_api_key=XXXXXXX
+owm_api_key=XXXXXXX

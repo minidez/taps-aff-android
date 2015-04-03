@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- <ListPreference
+        android:key="temperatureUnit"
+        android:title="@string/temperature_units"
+        android:dialogTitle="@string/temperature_units"
+        android:entries="@array/units_array"
+        android:entryValues="@array/units_array"
+        android:defaultValue="@string/unit_default"
+        /> -->
+    <ListPreference
+        android:key="tapsAffTemp"
+        android:title="@string/temperature_setting"
+        android:dialogTitle="@string/temperature_setting"
+        android:entries="@array/temp_array_c"
+        android:entryValues="@array/temp_array_values_c"
+        android:defaultValue="@string/temperature_default"
+        />
+    <ListPreference
+        android:key="textColour"
+        android:title="@string/text_colour"
+        android:dialogTitle="@string/text_colour"
+        android:entries="@array/text_colour"
+        android:entryValues="@array/text_colour"
+        android:defaultValue="@string/text_colour_default"
+        />
+    <Preference android:title="@string/about" >
+    	<intent android:action="uk.co.ianadie.tapsaff.About"/>
+	</Preference>
+</PreferenceScreen>

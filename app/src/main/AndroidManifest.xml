@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="uk.co.ianadie.tapsaff"
+    android:versionCode="19"
+    android:versionName="1.0.6" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:label="@string/app_name"
+        android:allowBackup="true"
+        android:icon="@drawable/tapsaffwhite"
+        android:theme="@style/AppTheme">
+        <activity android:name="uk.co.ianadie.tapsaff.About" android:label="@string/about">
+	        <intent-filter>
+	           <action android:name="uk.co.ianadie.tapsaff.About" />
+	           <category android:name="android.intent.category.DEFAULT" />
+	       </intent-filter>
+       </activity>
+        <activity android:name="uk.co.ianadie.tapsaff.WidgetSettings" android:label="@string/settings">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="uk.co.ianadie.tapsaff.UpdateWidgetService"
+            android:label="@string/app_name" />
+        <service
+            android:name="uk.co.ianadie.tapsaff.UpdateDashclockService"
+            android:icon="@drawable/tapsaff"
+            android:label="@string/extension_title"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".WidgetSettings" />
+        </service>
+
+        <!-- Widget Settings -->
+        <receiver android:name="uk.co.ianadie.tapsaff.TapsAffWidgetProvider"
+             android:label="@string/widget_label_large" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/taps_aff_widget_large" />
+        </receiver>
+        
+         <receiver android:name="uk.co.ianadie.tapsaff.TapsAffWidgetProviderSmall"
+             android:label="@string/widget_label_small" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/taps_aff_widget_small" />
+        </receiver>
+        
+         <receiver android:name="uk.co.ianadie.tapsaff.TapsAffWidgetProviderMedium"
+             		android:label="@string/widget_label_medium" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/taps_aff_widget_medium" />
+        </receiver>
+    </application>
+
+</manifest>
